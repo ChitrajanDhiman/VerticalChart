@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
 
   view: any[] = [0, 300];
-  showXAxis = false;
+  showXAxis = true;
   showYAxis = true;
   gradient = true;
   showLegend = false;
@@ -70,9 +70,15 @@ export class AppComponent {
           }
         );
       } else {
+
+        // Add empty spaces as name to avoid displaying index in x-axis
+        let name = '';
+        for (let index = 0; index < i; index++) {
+            name = name + ' ';
+        }
         this.graphData.push(
           {
-            name: ('' + i),
+            name: (name),
             series: [
               { name: ('2010'), value: (0) },
               { name: ('2000'), value: (0) },
